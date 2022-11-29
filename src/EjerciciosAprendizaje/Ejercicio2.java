@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication7;
+package EjerciciosAprendizaje;
+
+import java.util.Scanner;
 
 /**
  *
@@ -13,9 +15,19 @@ public class Ejercicio2 {
 
     /**
      * @param args the command line arguments
+     * Escribir un programa que pida tu nombre, lo guarde en una variable y lo muestre por
+pantalla
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+     
+        System.out.println("Escriba su nombre");
+        String cadena = "nombre";
+        Scanner leer = new Scanner (System.in);   
+        String nombre = leer.next();
+        
+        System.out.println("Su nombre es " + nombre);         
+                
+        
     }
     
 }

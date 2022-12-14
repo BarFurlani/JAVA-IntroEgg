@@ -1,3 +1,3 @@
 # EGG
-Ejercicios JAVA intro
-En la Carpeta "src" se encuentran los ejercicios
+Ejercicios JAVA intro,
+Se encuentranEn la Carpeta "src" 

@@ -18,7 +18,7 @@ usuario ingresa 1600 minutos, el sistema debe calcular su equivalente: 1 día, 2
         
         System.out.println("Ingrese un  tiempo en minutos. Ej: 1600");
         Scanner leer = new Scanner(System.in);
-        int minutos, horas, dias;
+        double minutos, horas, dias;
         minutos =leer.nextInt();
         
            // dias = (minutos/60)/24;

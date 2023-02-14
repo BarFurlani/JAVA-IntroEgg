@@ -19,14 +19,13 @@ public class Ejercicio8 {
     public static void main(String[] args) {
 
         Scanner leer = new Scanner(System.in);
-
-        do {
-            System.out.println("Ingrese una palabra/frase de 8 caracteres");
-            String palabra = leer.nextLine();
-            int largo = palabra.length();
-        } while (palabra.length() != 8);
-
-        System.out.println("Perfecto, la palabra/frase posee 8 caracteres");
+        System.out.println("Ingrese una palabra/frase de 8 caracteres");
+        String palabra = leer.nextLine();
+        
+       if (palabra.length() == 8){  
+           System.out.println("Perfecto, la palabra/frase posee 8 caracteres");
+        } else {
+           System.out.println("INCORRECTO. La palabra/frase no tiene 8 caracteres");
+        
     }
-
-}
+}}

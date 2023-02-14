@@ -1,7 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Dadas dos matrices cuadradas de números enteros, la matriz M de 10x10 y la matriz P de
+3x3, se solicita escribir un programa en el cual se compruebe si la matriz P está contenida
+dentro de la matriz M. Para ello se debe verificar si entre todas las submatrices de 3x3 que
+se pueden formar en la matriz M, desplazándose por filas o columnas, existe al menos una
+que coincida con la matriz P. En ese caso, el programa debe indicar la fila y la columna de
+la matriz M en la cual empieza el primer elemento de la submatriz P.
  */
 package Vectores_Matrices;
 
@@ -16,6 +19,9 @@ public class Ejercicio21 {
      */
     public static void main(String[] args) {
         
+        int cont = 0, inc = 0, incont = 0;
+        boolean conf = false;
+        
         int matrizA[][] = {{1, 26, 36, 47, 5, 6, 72, 81, 95, 10},
             {11, 12, 13, 21, 41, 22, 67, 20, 10, 61},
             {56, 78, 87, 90, 9, 90, 17, 12, 87, 67},
@@ -28,13 +34,16 @@ public class Ejercicio21 {
             {21, 68, 78, 98, 90, 67, 12, 41, 65, 12}};
         int matrizN[][] = {{36, 5, 67,},{89, 90, 75},{14, 22, 26}}; 
         
+        System.out.println("MATRIZ A");
+        System.out.println("");
          for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 System.out.print("[" + matrizA[i][j] + "]" );
             }
             System.out.println("");
-        }
-        
+        }     
+        System.out.println("");
+        System.out.println("MATRIZ B");
         System.out.println("");
         
         for (int i = 0; i < 3; i++) {
@@ -43,25 +52,37 @@ public class Ejercicio21 {
             }
             System.out.println("");
         }
-    }
         
+        System.out.println("");
+        System.out.println("La MATRIZ B, se encuentra dentro de A, en las posiciones: " );
         
-        int posicionDeElementoBuscado = existeEnArreglo(matrizA, matrizN);
-	if (posicionDeElementoBuscado == -1) {
-		System.out.println("El elemento NO existe en el arreglo");
-	} else {
-		System.out.println("El elemento existe en la posición: " + posicionDeElementoBuscado);
-	}
-        
-        
-        
-    }
-   public static int existeEnArreglo(int[] arreglo, int busqueda) {
-		for (int x = 0; x < arreglo.length; x++) {
-			if (arreglo[x] == busqueda) {
-				return x;
-			}
-		}
-		return -1;
-	} 
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (matrizA[i][j] == matrizN[0][0]) {
+                    cont++;
+                    inc = j;
+                    incont = j + 3;
+                    if (i < 8 && j < 8) {
+                        for (int k = 0; k < 3; k++) {
+                            for (int l = 0; l < 3; l++) {
+                                if (matrizA[i][j] == matrizN[k][l]) {
+                                    cont++;
+                                    if (cont != 2) { 
+                                        System.out.println(i + "," + j);
+                                        conf = true;
+                                    }
+                                    j++;
+                                    if (j == incont) {
+
+                                        i++;
+                                        j = inc;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }       
 }
